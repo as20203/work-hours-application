@@ -31,8 +31,8 @@ export default function Home() {
                 <div className={`flex-wrap w-full h-screen lg:ml-40  ${sidebarVisibility ? 'ml-40' : 'ml-auto'}`}>
                     <Header sidebarVisibility={sidebarVisibility} setSidebarVisibility={setSidebarVisibility} />
                     <div className="m-16 mb-3 relative overflow-x-auto shadow-md sm:rounded-lg">
-                        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-                            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-700 ">
+                            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-sky-200 dark:text-gray-700 border-b dark:border-gray-700">
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         code
@@ -53,8 +53,8 @@ export default function Home() {
                             </thead>
                             <tbody>
                                 {projects.slice(start, start + offset).map(({ name, id, team, message }, index) => {
-                                    return <tr key={`${id}-${name}-${index}`} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    return <tr key={`${id}-${name}-${index}`} className="odd:bg-white odd:dark:bg-sky-200 even:bg-gray-50 even:dark:bg-sky-100 border-b dark:border-gray-700">
+                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-gray">
                                             {id}
                                         </th>
                                         <td className="px-6 py-4">
@@ -67,7 +67,7 @@ export default function Home() {
                                             {message}
                                         </td>
                                         <td className="px-6 py-4">
-                                            <Link href="#" className="font-medium text-blue-600 dark:text-blue-500">Add hours</Link>
+                                            <Link href="#" className="font-medium text-blue-600 dark:text-blue-700">Add hours</Link>
                                         </td>
                                     </tr>
                                 })}
@@ -91,12 +91,12 @@ export default function Home() {
                                             justify-center 
                                             px-3 h-8 ms-0 
                                             leading-tight 
-                                            text-gray-500 
+                                            text-gray-700 
                                             bg-white border border-e-0 
                                             border-gray-300 rounded-s-lg 
-                                            dark:bg-gray-800 
+                                            dark:bg-sky-200 
                                             dark:border-gray-700                                        
-                                            ${pageNumber !== 1 && 'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white hover:text-gray-700'}
+                                            ${pageNumber !== 1 && 'hover:bg-sky-100 dark:hover:bg-sky-300 dark:hover:text-white hover:text-gray-700'}
                                             ${pageNumber == 1 && 'cursor-not-allowed'}
                                             `
                                             }
@@ -115,14 +115,15 @@ export default function Home() {
                                             justify-center 
                                             px-3 h-8 
                                             leading-tight 
-                                            text-gray-500
+                                            text-gray-700 
                                             ${pageNo == pageNumber
                                                     ?
-                                                    'bg-gray-600' :
-                                                    'dark:bg-gray-800 dark:border-gray-700  border  border-gray-300'} 
-                                            hover:bg-gray-100 hover:text-gray-700 
-                                            dark:text-gray-400 
-                                            dark:hover:bg-gray-700 dark:hover:text-white`
+                                                    'bg-cyan-100' :
+                                                    'dark:bg-sky-200 dark:border-gray-700'} 
+                                            border border-gray-700
+                                            hover:bg-sky-100 hover:text-sky-700 
+                                            dark:text-gray-700 
+                                            dark:hover:bg-sky-700 dark:hover:text-white`
                                             }>{pageNo}</Link>
                                         </li>
                                         )
@@ -133,13 +134,14 @@ export default function Home() {
                                             className={`
                                             flex items-center 
                                             justify-center px-3 h-8 
-                                            leading-tight text-gray-500 
+                                            leading-tight 
+                                            text-gray-700 
                                             bg-white border border-gray-300 
                                             rounded-e-lg
-                                            dark:bg-gray-800
-                                            ${pageNumber != totalPages && 'hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white hover:text-gray-700'} 
-                                            dark:border-gray-700 
-                                            dark:text-gray-400 
+                                            dark:bg-sky-200
+                                            ${pageNumber != totalPages && 'hover:bg-sky-100 dark:hover:bg-sky-300 dark:hover:text-white hover:text-gray-700'} 
+                                            dark:border-sky-700 
+                                            dark:text-gray-700 
                                             ${pageNumber == totalPages && 'cursor-not-allowed'}
                                             `
                                             }>

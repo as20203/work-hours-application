@@ -12,6 +12,10 @@ export default function Home() {
                     <Header sidebarVisibility={sidebarVisibility} setSidebarVisibility={setSidebarVisibility} />
                     <div>
                         <p> These will be the dashboard pages for managing user profile.</p>
+
+
+
+
                     </div>
                 </div>
             </div>

@@ -1,9 +1,10 @@
 "use client";
 import { Sidebar, Header } from "~/components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 export default function Home() {
     const [sidebarVisibility, setSidebarVisibility] = useState(false);
+    const [showWorkHourForm, setShowWorkHourForm] = useState(false);
     const [projects] = useState([
         { "id": "MM-17", "name": "hub", "team": "Cross-group", "message": "sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim" },
         { "id": "PG-WPD", "name": "Face to face", "team": "Business-focused", "message": "convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque" },
@@ -67,7 +68,7 @@ export default function Home() {
                                             {message}
                                         </td>
                                         <td className="px-6 py-4">
-                                            <Link href="#" className="font-medium text-blue-600 dark:text-blue-700">Add hours</Link>
+                                            <Link onClick={() => setShowWorkHourForm(true)} href="#" className="font-medium text-blue-600 dark:text-blue-700">Add hours</Link>
                                         </td>
                                     </tr>
                                 })}
@@ -154,6 +155,42 @@ export default function Home() {
                                 </ul>
                             </nav>
                         </div>
+                    }
+
+                    {
+                        showWorkHourForm &&
+                        <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50">
+                            <div className="bg-neutral-50 absolute top-1/4 left-16 md:left-72 lg:left-1/2 sm:left-1/4 z-20 w-64 ">
+                                <svg
+                                    onClick={() => setShowWorkHourForm(false)}
+                                    className={`w-6 h-6 sticky left-0 right-0`}
+                                    cursor={'pointer'}
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                                </svg>
+                                <form className="bg-white shadow-md  px-8 pt-6 pb-8">
+                                    <div className="mb-4">
+                                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                                            Hours worked
+                                        </label>
+                                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" min={1} max={8} step={0.5} placeholder="hours worked" />
+                                    </div>
+                                    <div className="mb-6">
+                                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                                            Set Date
+                                        </label>
+                                        <input className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="date" />
+                                        <p className="text-red-500 text-xs italic">Please choose a password.</p>
+                                    </div>
+                                    <div className="flex flex-col items-center justify-between">
+                                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                                            Set Hours
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                     }
                 </div>
             </div>

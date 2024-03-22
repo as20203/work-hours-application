@@ -11,11 +11,7 @@ export default function Home() {
                 <div className={`flex-wrap w-full h-screen lg:ml-40  ${sidebarVisibility ? 'ml-40' : 'ml-auto'}`}>
                     <Header sidebarVisibility={sidebarVisibility} setSidebarVisibility={setSidebarVisibility} />
                     <div>
-                        <p> These will be the dashboard pages for managing user profile.</p>
-
-
-
-
+                        <p> These will be the dashboard pages for managing user profile section.</p>
                     </div>
                 </div>
             </div>
